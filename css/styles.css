@@ -1,0 +1,21 @@
+#skrollr-body {
+    width: 1920px;
+    min-width: 500px;
+    margin: auto;
+}
+#content {
+    width: 1920px;
+    min-width: 500px;
+}
+
+.actors {
+    width: 50%;
+    height: auto;
+    left: 28vw;
+    top: 20vw;
+}
+
+.marginImg {
+    width: 100%;
+    height: auto;
+}
