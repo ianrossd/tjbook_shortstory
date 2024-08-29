@@ -10,6 +10,28 @@
 			type="text/javascript"
 			src="https://code.jquery.com/jquery-3.7.1.min.js"
 		></script>
+		<script>
+			$(document).on('scroll', () => {
+				// console.log($(window).scrollTop())		// for debugging
+				if (
+					$(window).scrollTop() >= 2400 &&
+					$(window).scrollTop() <= 2500 &&
+					$('#switchSnd')[0].paused
+				) {
+					$('#switchSnd')[0].play()
+					// console.log('audio played')		// for debugging
+				}
+			})
+		</script>
+		<script>
+			$(document).ready(() => {
+				document.querySelector('#startDialog').showModal()
+				$('#startBtn').on('click', () => {
+					document.querySelector('#startDialog').close()
+					$('body').css('overflow', 'auto')
+				})
+			})
+		</script>
 		<link
 			rel="stylesheet"
 			href="./css/styles.css"
@@ -18,8 +40,7 @@
 	<body style="background: rgb(0, 0, 0); overflow: hidden">
 		<dialog
 			id="startDialog"
-			open=""
-			style="z-index: 102; background: darkred; top: 45vh"
+			style="background: darkred;"
 		>
 			<button
 				id="startBtn"
@@ -129,25 +150,6 @@
 			<!-- Panel 3 end -->
 		</div>
 		<!-- </div> -->
-		<script>
-			$(document).on('scroll', () => {
-				console.log($(window).scrollTop());
-				if (
-					$(window).scrollTop() >= 2400 &&
-					$(window).scrollTop() <= 2500 &&
-					$('#switchSnd')[0].paused
-				) {
-					$('#switchSnd')[0].play();
-					console.log('audio played');
-				}
-			});
-		</script>
-		<script>
-			$('#startBtn').on('click', () => {
-				$('#startDialog').removeAttr('open');
-				$('body').css('overflow', 'auto');
-			});
-		</script>
 		<script
 			type="text/javascript"
 			src="./scripts/skrollr.js"
@@ -177,7 +179,11 @@
 			></script>
 		<![endif]-->
 		<script type="text/javascript">
-			var s = skrollr.init();
+			// var s = skrollr.init();
+			var s = skrollr.init({
+				smoothScrolling: true,
+				smoothScrollingDuration: 700
+			});
 		</script>
 	</body>
 </html>
